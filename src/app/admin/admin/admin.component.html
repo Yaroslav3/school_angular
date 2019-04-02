@@ -1,0 +1,106 @@
+<div class="wrapper">
+
+
+  <app-admin-header></app-admin-header>
+
+  <div class="content">
+    <div class="create-home-work-btn">
+      <button type="button" class="btn" (click)="openModalViewHomeWork(homeWork)"> Створити домашне завдання</button>
+    </div>
+
+    <div class="status">
+      <div *ngIf="isStatusSuccess" class="message alert alert-success" role="alert">
+        Домашне завдвння створене
+      </div>
+      <div *ngIf="isStatusError" class="alert alert-danger" role="alert">
+        Помилка! домашне завдання не створене.
+      </div>
+
+    </div>
+  </div>
+
+  <ng-template #homeWork let-modal>
+    <div class="modal-header">
+      <h4 class="modal-title" id="modal-add"><span>Домашнє завдяння </span>
+      </h4>
+      <button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')">
+        <span aria-hidden="true">&times;</span>
+      </button>
+    </div>
+    <div class="modal-body">
+      <div class="content-home-work">
+
+        <form name="form" [formGroup]="homeWorkForm" (ngSubmit)="submitHomeWorkSave()" novalidate>
+
+          <div class="lesson">
+            <select formControlName="name" name="name" class="lesson">
+              <option>--</option>
+              <option class="select-input" *ngFor="let elem of lessons">
+                {{elem.name}}
+              </option>
+            </select>
+            <div class="error-input" *ngIf="isSubmitted && f.name.errors">
+              <div *ngIf="f.name.errors.required">
+                <span>* не має бути пустим  </span>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="date-datepicker">
+            <div class="input-group">
+              <input formControlName="start_date" name="start_date" class="form-control" placeholder="Створено"
+                     title="Створено" ngbDatepicker #s="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="s.toggle()" type="button"><i
+                  class="far fa-calendar-alt"></i></button>
+              </div>
+              <div class="error-input" *ngIf="isSubmitted && f.start_date.errors">
+                <div *ngIf="f.start_date.errors.required">
+                  <span>* не має бути пустим </span>
+                </div>
+              </div>
+            </div>
+
+            <div class="bl input-group">
+              <input formControlName="end_date" name="end_date" class="form-control" placeholder="Виконати на"
+                     title="Виконати на" ngbDatepicker #e="ngbDatepicker">
+              <div class="input-group-append">
+                <button class="btn btn-outline-secondary calendar" (click)="e.toggle()" type="button"><i
+                  class="far fa-calendar-alt"></i></button>
+              </div>
+              <div class="error-input" *ngIf="isSubmitted && f.end_date.errors">
+                <div *ngIf="f.end_date.errors.required">
+                  <span>* не має бути пустим </span>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <br>
+
+          <div class="task-text">
+          <textarea formControlName="text" name="text" class="textarea-form" type="text"
+                    placeholder="Текст завдяння..."></textarea>
+            <div class="error-input" *ngIf="isSubmitted && f.text.errors">
+              <div *ngIf="f.text.errors.required">
+                <span>* не має бути пустим </span>
+              </div>
+              <div *ngIf="f.text.errors.maxlength">
+                <span>* не більше 200 символів </span>
+              </div>
+            </div>
+          </div>
+
+
+          <div class="save-btn">
+            <button class="btn btn-outline-secondary" type="submit">Зберегти</button>
+          </div>
+
+        </form>
+      </div>
+    </div>
+
+  </ng-template>
+</div>

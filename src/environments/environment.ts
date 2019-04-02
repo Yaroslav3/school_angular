@@ -3,7 +3,20 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false
+  production: false,
+  host: 'http://test-front.datamaster.com.ua/',
+
+  urlLessons: 'api/lessons',
+  urlCreateHomeWorks: 'api/homeworks'
+};
+
+/**
+ *  admin auth
+ * **/
+export const eAdminAuth = {
+  production: false,
+  adminUrlSignin: 'api/login',
+  adminUrlSignup: 'api/signup',
 };
 
 /*

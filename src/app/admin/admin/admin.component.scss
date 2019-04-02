@@ -1,0 +1,104 @@
+
+.wrapper {
+  max-width: 1500px;
+  margin: 0 auto;
+}
+
+.create-home-work-btn {
+  display: flex;
+  justify-content: center;
+}
+
+.content {
+  display: flex;
+  flex-direction: column;
+}
+
+.status {
+  margin-top: 20px;
+  width: 100%;
+  padding-left: 20px;
+  padding-right: 20px;
+}
+
+.create-home-work-btn button {
+  color: #fbfbfb;
+  background-color: #c2c2c2;
+  border-radius: 1px;
+}
+
+.create-home-work-btn button:hover {
+  background-color: #a4a4a4;
+}
+
+//---------- modal window home work --------------//
+.modal-header span {
+  color: #a4a4a4;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.content-home-work {
+  display: flex;
+  flex-direction: column;
+}
+
+.lesson select {
+  width: 49.7%;
+  height: 38px;
+  border-radius: 1px;
+  text-indent: 0.6em;
+  border: 1px solid #949494;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: #7a7a7a;
+}
+
+.wo-b {
+  display: flex;
+  flex-direction: column;
+}
+
+.input-group input {
+  width: 50%;
+  height: 38px;
+  border-radius: 1px;
+  text-indent: 0.6em;
+  border: 1px solid #949494;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-size: 15px;
+  color: #7a7a7a;
+
+}
+
+.bl {
+  padding-left: 10px;
+}
+
+.date-datepicker {
+  display: flex;
+}
+
+.input-group > .input-group-append > .btn {
+  border-radius: 0;
+}
+
+.task-text textarea {
+  width: 100%;
+}
+
+.save-btn {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.btn {
+  border-radius: 1px;
+
+}
+
+.error-input span {
+  color: #a01809;
+  font-size: 12px;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+  font-weight: bold;
+}
